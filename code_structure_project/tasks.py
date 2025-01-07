@@ -89,6 +89,7 @@ def python(ctx):
 
 @task 
 def git(ctx, message :str = "No message") -> None:
+    ctx.echo=True
     ctx.run("git add .")
     ctx.run(f"git commit -m \"{message}\"")
     ctx.run("git push")
