@@ -85,11 +85,16 @@ def serve_docs(ctx: Context) -> None:
 @task
 def python(ctx):    
     """ """
-    ctx.run("Which python" if os.name != "nt" else "where python")
+    ctx.run("Which python" if os.name != "nt" else "where python", echo=True)
 
 @task 
 def git(ctx, message :str = "No message") -> None:
-    ctx.echo=True
     ctx.run("git add .")
     ctx.run(f"git commit -m \"{message}\"")
     ctx.run("git push")
+
+@task
+def conda(ctx, name: str, ):
+    ctx.run(f"conda env create -f enviorenment.yml", echo=True)
+    ctx.run(f"conda activate {name}")
+    ctx.run("pip install -e .")
