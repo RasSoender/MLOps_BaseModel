@@ -7,7 +7,7 @@ import os.path
 @pytest.mark.skipif(not os.path.exists("data/"), reason="Data files not found")
 def test_data():
     """Test the MyDataset class."""
-    training, testing = corrupt_mnist() 
+    training, testing = corrupt_mnist()
     assert len(training) == 30000, "not enough training data"
     assert len(testing) == 5000, "not enough testing data"
     for dataset in [training, testing]:

@@ -42,6 +42,6 @@ def visualize(model_checkpoint: str = "models/model.pth", figure_name: str = "em
         plt.scatter(embeddings[mask, 0], embeddings[mask, 1], label=str(i))
     plt.legend()
     plt.savefig(f"reports/figures/{figure_name}")
-    
+
 if __name__ == "__main__":
     typer.run(visualize)

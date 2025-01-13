@@ -83,11 +83,11 @@ def serve_docs(ctx: Context) -> None:
     ctx.run("mkdocs serve --config-file docs/mkdocs.yaml", echo=True, pty=not WINDOWS)
 
 @task
-def python(ctx):    
+def python(ctx):
     """ """
     ctx.run("Which python" if os.name != "nt" else "where python", echo=True)
 
-@task 
+@task
 def git(ctx, message :str = "No message") -> None:
     ctx.run("git add .")
     ctx.run(f"git commit -m \"{message}\"")
